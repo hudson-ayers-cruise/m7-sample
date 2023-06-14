@@ -48,8 +48,8 @@ compile: $(BUILD) $(ELF)
 
 $(A53_BOOTLOADER_OUT): $(A53_BOOTLOADER) cleanlinker $(ELF)
 	@printf "  [APP]\t$@ <- $<\n"
-	@$(CURDIR)/append_m7.sh -i $< -b $(ELF_BIN) -m $(ELF_MAP)
-
+	@$(CURDIR)/append_m7_uvelosity.sh -i $< -b /home/hudson.ayers/cruise/micros/output/apps/s32g_m7/s32g_m7.bin -m /home/hudson.ayers/cruise/micros/output/apps/s32g_m7/s32g_m7.map
+	
 $(BUILD)/%.ld: %.ld.S
 	@printf "  [CC]\t$@ <- $<\n"
 	@$(CC) -E -P $(CFLAGS) -o $@ $<
