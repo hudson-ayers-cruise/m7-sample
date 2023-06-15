@@ -179,11 +179,11 @@ m7_bin_padding=$((expected_ep - ram_start))
 m7_bin_off=$((m7_bin_off + m7_bin_padding))
 
 echoerr() { echo "$@" 1>&2; }
-echoerr "app_start_off: ${app_start_off}"
-echoerr "app_header_off: ${app_header_off}"
-echoerr "ram_start_orig: ${ram_start_orig}"
-echoerr "ram_start: ${ram_start}"
-echoerr "expected_ep: ${expected_ep}"
+echoerr "1app_start_off: ${app_start_off}"
+echoerr "1app_header_off: ${app_header_off}"
+echoerr "1ram_start_orig: ${ram_start_orig}"
+echoerr "1ram_start: ${ram_start}"
+echoerr "1expected_ep: ${expected_ep}"
 
 if test "${show_expected_ep}"; then
 	printf "0x%x\n" "${expected_ep}"
