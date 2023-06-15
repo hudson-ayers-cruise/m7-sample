@@ -191,11 +191,11 @@ expected_ep=$(roundup $ram_start $VTABLE_ALIGN)
 m7_bin_padding=$((expected_ep - ram_start))
 m7_bin_off=$((m7_bin_off + m7_bin_padding))
 
-printf "app_start_off: 0x%x\n" "${app_start_off}"
-printf "app_header_off: 0x%x\n" "${app_header_off}"
-printf "ram_start_orig: 0x%x\n" "${ram_start_orig}"
-printf "ram_start: 0x%x\n" "${ram_start}"
-printf "expected_ep: 0x%x\n" "${expected_ep}"
+echo "app_start_off: ${app_start_off}"
+echo "app_header_off: ${app_header_off}"
+echo "ram_start_orig: ${ram_start_orig}"
+echo "ram_start: ${ram_start}"
+echo "expected_ep: ${expected_ep}"
 
 
 if test "${show_expected_ep}"; then
