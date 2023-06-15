@@ -185,7 +185,7 @@ uboot_off_new=$((uboot_off + m7_bin_size))
 
 ram_start_orig=$(get_u32_val "${input}" $((app_header_off + app_start_off)))
 
-ram_start=$((ram_start_orig - 0x2000))
+ram_start=$((ram_start_orig - m7_bin_size))
 # Align to VTABLE_ALIGN
 expected_ep=$(roundup $ram_start $VTABLE_ALIGN)
 m7_bin_padding=$((expected_ep - ram_start))
