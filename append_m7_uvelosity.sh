@@ -119,7 +119,7 @@ app_code_off=0x40
 
 # Size needed for M7: code + stack.
 # Very conservative while I test.
-m7_bin_size=0x60000
+m7_bin_size=0x20000
 
 show_usage ()
 {
