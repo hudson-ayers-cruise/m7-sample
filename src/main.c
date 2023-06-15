@@ -131,6 +131,6 @@ static void enable_a53(void)
 
 int main(void)
 {
-	//enable_a53();
+	enable_a53();
 	return 1;
 }
