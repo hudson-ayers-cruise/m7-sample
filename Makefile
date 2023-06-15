@@ -48,6 +48,7 @@ compile: $(BUILD) $(ELF)
 
 $(A53_BOOTLOADER_OUT): $(A53_BOOTLOADER) cleanlinker $(ELF)
 	@printf "  [APP]\t$@ <- $<\n"
+	@gmemfile ~/cruise/micros/output/apps/s32g_m7/s32g_m7 -o ~/cruise/micros/output/apps/s32g_m7/s32g_m7.bin
 	@$(CURDIR)/append_m7_uvelosity.sh -i $< -b /home/hudson.ayers/cruise/micros/output/apps/s32g_m7/s32g_m7.bin -m /home/hudson.ayers/cruise/micros/output/apps/s32g_m7/s32g_m7.map
 	
 $(BUILD)/%.ld: %.ld.S
