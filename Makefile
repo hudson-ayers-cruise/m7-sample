@@ -48,6 +48,7 @@ compile: $(BUILD) $(ELF)
 
 $(A53_BOOTLOADER_OUT): $(A53_BOOTLOADER) cleanlinker $(ELF)
 	@printf "  [APP]\t$@ <- $<\n"
+	@fallocate -l 128KiB $(ELF_BIN)
 	@$(CURDIR)/append_m7.sh -i $< -b $(ELF_BIN) -m $(ELF_MAP)
 
 $(BUILD)/%.ld: %.ld.S
