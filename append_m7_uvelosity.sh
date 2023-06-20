@@ -215,7 +215,7 @@ tmpfile="$(mktemp ./tmp.XXXXXX)"
 trap 'rm -f "$tmpfile"' EXIT
 
 # Read M7 entry point from the map file. This is the start of VTABLE
-m7_bootloader_entry=$( get_symbol_addr "_start_T" "${m7_map}" ) || on_exit
+m7_bootloader_entry=$( get_symbol_addr "uv_cpu_reset_handler" "${m7_map}" ) || on_exit
 
 rm -f "${output}"
 # write from input file until uboot_off
