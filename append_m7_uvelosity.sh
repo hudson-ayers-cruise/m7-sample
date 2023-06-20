@@ -258,7 +258,7 @@ dd of="${output}" if="${m7_file}" conv=notrunc seek=$(hex2dec $m7_bin_off) statu
 # Its address is read from the m7 map file to compute the offset in binary file
 # where the A53 entry point should be overwritten
 a53_entry_point_addr=$( get_symbol_addr "a53_entry_point" "${m7_map}" ) || on_exit
-a53_entry_point_offset=$((a53_entry_point_addr - ram_start))
+a53_entry_point_offset=$((a53_entry_point_addr - m7_bootloader_entry))
 
 dd of="${output}" if="${tmpfile}" count=4 conv=notrunc seek=$(hex2dec $((m7_bin_off + a53_entry_point_offset))) status=none oflag=seek_bytes
 
