@@ -129,8 +129,17 @@ static void enable_a53(void)
 		;
 }
 
+u32 bl2_start_addr_flash = 0x00082040;
+u32 bl2_length = 0x2b400;
+u32 bl2_ram_start = 0x342fb110;
+
+void copy_bl2_into_ram() {
+  memcpy((void *)(bl2_ram_start), (void *)(bl2_ram_start), bl2_length);
+}
+
 int main(void)
 {
+  copy_bl2_into_ram();
 	enable_a53();
 	return 1;
 }
