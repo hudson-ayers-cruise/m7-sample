@@ -129,7 +129,7 @@ static void enable_a53(void)
 		;
 }
 
-void* naive_memcpy(volatile void* destination, const void* source, size_t num)
+void* naive_memcpy(volatile void* destination, void* source, u32 num)
 {
 	int i;
 	volatile char* d = destination;
@@ -140,12 +140,12 @@ void* naive_memcpy(volatile void* destination, const void* source, size_t num)
 	return destination;
 }
 
-volatile void * bl2_start_ptr = 0x00082040;
+volatile void * bl2_start_ptr = (volatile void*)0x00082040;
 u32 bl2_length = 0x2b400;
-volatile void * bl2_ram_start = 0x342fb110;
+volatile void * bl2_ram_start = (volatile void*)0x342fb110;
 
 void copy_bl2_into_ram() {
-  naive_memcpy((void *)(bl2_ram_start), (void *)(bl2_ram_start), bl2_length);
+  naive_memcpy(bl2_ram_start, bl2_ram_start, bl2_length);
 }
 
 int main(void)
