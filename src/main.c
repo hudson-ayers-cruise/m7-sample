@@ -129,12 +129,23 @@ static void enable_a53(void)
 		;
 }
 
-u32 bl2_start_addr_flash = 0x00082040;
+void* naive_memcpy(volatile void* destination, const void* source, size_t num)
+{
+	int i;
+	volatile char* d = destination;
+	char* s = source;
+	for (i = 0; i < num; i++) {
+		d[i] = s[i];
+	}
+	return destination;
+}
+
+volatile void * bl2_start_ptr = 0x00082040;
 u32 bl2_length = 0x2b400;
-u32 bl2_ram_start = 0x342fb110;
+volatile void * bl2_ram_start = 0x342fb110;
 
 void copy_bl2_into_ram() {
-  memcpy((void *)(bl2_ram_start), (void *)(bl2_ram_start), bl2_length);
+  naive_memcpy((void *)(bl2_ram_start), (void *)(bl2_ram_start), bl2_length);
 }
 
 int main(void)
