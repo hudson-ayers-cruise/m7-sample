@@ -140,7 +140,7 @@ void* naive_memcpy(volatile void* destination, void* source, u32 num)
 	return destination;
 }
 
-volatile void * bl2_start_ptr = (volatile void*)0x00082040;
+volatile void * bl2_start_ptr = (volatile void*)0x00080040;
 u32 bl2_length = 0x2b400;
 volatile void * bl2_ram_start = (volatile void*)0x342fb110;
 
