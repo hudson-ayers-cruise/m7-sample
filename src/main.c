@@ -13,7 +13,7 @@
 #define writel(addr, val)	((*(volatile u32*)(addr)) = (u32)(val))
 #define readl(addr)		(*(volatile u32*)(addr))
 
-u32 a53_entry_point = 0x340a0000UL;
+u32 a53_entry_point = 0x34302000UL;
 
 static void enable_partition(u8 partition)
 {
@@ -140,7 +140,7 @@ void* naive_memcpy(volatile void* destination, void* source, u32 num)
 	return destination;
 }
 
-volatile void * bl2_flash_start = (volatile void*)0x342f9110;
+volatile void * bl2_flash_start = (volatile void*)0x00080040;
 u32 bl2_length = 0x2b400;
 volatile void * bl2_ram_start = (volatile void*)0x342fb110;
 
@@ -152,6 +152,5 @@ int main(void)
 {
   copy_bl2_into_ram();
 	enable_a53();
-  while (1) {}
 	return 1;
 }
