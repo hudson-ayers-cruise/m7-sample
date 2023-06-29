@@ -152,7 +152,7 @@ void copy_bl2_into_ram() {
 int main(void)
 {
   copy_bl2_into_ram();
-	enable_a53();
   while(1) {}
+	enable_a53();
 	return 1;
 }
