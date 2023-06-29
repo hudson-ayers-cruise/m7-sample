@@ -132,9 +132,9 @@ static void enable_a53(void)
 void* naive_memcpy(volatile void* destination, void* source, u32 num)
 {
 	int i;
-	volatile char* d = destination;
-	char* s = source;
-	for (i = 0; i < num; i++) {
+	volatile u32* d = destination;
+	u32* s = source;
+	for (i = 0; i < num / 4; i++) {
 		d[i] = s[i];
 	}
 	return destination;
