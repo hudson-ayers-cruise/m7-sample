@@ -152,5 +152,6 @@ int main(void)
 {
   copy_bl2_into_ram();
 	enable_a53();
+  while (1) {}
 	return 1;
 }
