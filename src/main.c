@@ -135,7 +135,8 @@ void* naive_memcpy(volatile void* destination, void* source, u32 num)
 	volatile u32* d = destination;
 	u32* s = source;
 	for (i = 0; i < num / 4; i++) {
-		d[i] = s[i];
+		//d[i] = s[i];
+		d[i] = 0x12345678;
 	}
 	return destination;
 }
