@@ -10,9 +10,9 @@ ENTRY(_start)
 
 #ifdef CUSTOM_START_ADDR
 //START_ADDR = CUSTOM_START_ADDR;
-START_ADDR = 0x34078d00;
+START_ADDR = 0x34002d00;
 #else
-START_ADDR = 0x34078d00;
+START_ADDR = 0x34002d00;
 #endif
 
 #define VTOR_ALIGNMENT	128
@@ -37,7 +37,7 @@ SECTIONS
  }
 
  _stack_end = START_ADDR + 0x1000;
- _stack_start = START_ADDR + 0x2000 - VTOR_ALIGNMENT;
+ _stack_start = START_ADDR + 0x78000 - VTOR_ALIGNMENT;
 
  /DISCARD/ : { *(.dynsym) }
  /DISCARD/ : { *(.dynstr*) }
