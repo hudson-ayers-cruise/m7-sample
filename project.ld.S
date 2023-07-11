@@ -37,7 +37,7 @@ SECTIONS
  }
 
  _stack_end = START_ADDR + 0x1000;
- _stack_start = START_ADDR + 0x80000 - VTOR_ALIGNMENT;
+ _stack_start = START_ADDR + 0x2000 - VTOR_ALIGNMENT;
 
  /DISCARD/ : { *(.dynsym) }
  /DISCARD/ : { *(.dynstr*) }
