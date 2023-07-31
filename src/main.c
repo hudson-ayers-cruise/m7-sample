@@ -20,8 +20,8 @@ static void enable_partition(u8 partition)
 	u32 reg_value = 0;
 
 #ifndef DISABLE_A53_LOCKSTEP
-	writel(A53_CLUSTER_GPR06,
-	       (readl(A53_CLUSTER_GPR06) | A53_CLUSTER_CA53_LOCKSTEP_ENABLE));
+	//writel(A53_CLUSTER_GPR06,
+	//       (readl(A53_CLUSTER_GPR06) | A53_CLUSTER_CA53_LOCKSTEP_ENABLE));
 #endif
 
 	/* enable clock partition */
